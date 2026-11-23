@@ -83,6 +83,23 @@ Bei der Auslegung von Anti-Aliasing-Filtern für Datenerfassungssysteme (Data Ac
 
 ---
 
+### 3. Toleranz- und Robustheitsanalyse (Monte-Carlo-Simulation)
+
+![Monte-Carlo-Analyse](docs/monte_carlo_tran.png)
+
+* **Simulationsbefehl:** `.tran 0 10m 0 1u` kombiniert mit `.step param run 1 100 1`
+* **Getestete Toleranzen:** Alle frequenzbestimmenden Widerstände (±1 %) und Kondensatoren (±5 %) beider Sallen-Key-Stufen wurden gleichzeitig mit der `mc()`-Funktion variiert.
+
+#### Bedeutung & Auswertung der Ergebnisse
+Die Monte-Carlo-Analyse prüft, ob das Filter auch unter realen Fertigungsbedingungen (Bauteilstreuung in der Serienproduktion) zuverlässig arbeitet:
+
+* **Stabile Störunterdrückung:** Alle simulierten Kurvenverläufe von `V(out2)` (rotes Kurvenbündel) zeigen einen sauberen 1 kHz Sinus. Die 12 kHz Störfrequenz aus `V(in1)` (blau) wird in jedem Toleranzszenario vollständig herausgefiltert.
+* **Minimale Streuung:** Die extrem geringe Breite des roten Kurvenbandes belegt, dass Bauteilabweichungen nur minimale Auswirkungen auf die Ausgangsamplitude und Phasenlage haben.
+* **Einschwingzeit:** Nach dem Einschalten (`0 ms`) benötigt das Filter 4. Ordnung ca. `1.5 ms` (eineinhalb Signalperioden), bis der stationäre Zustand erreicht ist.
+
+
+---
+
 ## 📚 Quellen & Referenzen
 
 * **Bonnie C. Baker:** *Anti-Aliasing, Analog Filters for Data Acquisition Systems*, Application Note **AN699**, Microchip Technology Inc. (Figure 17 & Figure 18: *4th Order Butterworth Design*).
