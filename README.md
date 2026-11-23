@@ -34,7 +34,7 @@ Bei der Auslegung von Anti-Aliasing-Filtern für Datenerfassungssysteme (Data Ac
 
 ### 1. Frequenzgang (AC-Analyse / Bode-Diagramm)
 
-![AC-Schaltplan](./docs/Schematic.png)
+![Transienten-Schaltplan](docs/4_order_butterworth.png)
 ![Bode-Diagramm](./docs/bodediagram.png)
 
 * **Simulationsbefehl:** `.ac dec 100 1 10000` (Sweep von 1 Hz bis 10 kHz)
@@ -47,7 +47,8 @@ Bei der Auslegung von Anti-Aliasing-Filtern für Datenerfassungssysteme (Data Ac
 
 ### 2. Zeitbereichsverhalten (Transientenanalyse)
 
-![Transienten-Schaltplan](docs/4_order_butterworth.png)
+
+![AC-Schaltplan](./docs/Schematic.png)
 ![Transientenanalyse](docs/transient_plot.png)
 
 * **Simulationsbefehl:** `.tran 0 5m 0 1u`
